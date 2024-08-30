@@ -1,0 +1,37 @@
+version: "3.8"
+
+name: ddms 
+
+services:
+  dev:
+    container_name: ddms-cc
+    build:
+      context: .
+      dockerfile: ${DEV_DOCKERFILE}
+      target: base
+    restart: always
+    ports:
+      - "${DEV_APP_PORT:-80}:80"
+      - "${DEV_VITE_PORT:-8813}:8813"
+    volumes:
+      - ./src:/var/www/html
+      # - ./src/app:/var/www/html/app
+      # - ./src/config:/var/www/html/config
+      # - ./src/database:/var/www/html/database
+      # - ./src/routes:/var/www/html/routes
+      - ./.deploy/nginx/conf.d:/etc/nginx/conf.d
+    networks:
+      - codechallenge
+      - database_mysql
+      # - tools_cache
+      # - tools_mailer
+
+networks:
+  codechallenge:
+    driver: "bridge"
+  database_mysql:
+    external: true
+  # tools_cache:
+  #   external: true
+  # tools_mailer:
+  #   external: true
