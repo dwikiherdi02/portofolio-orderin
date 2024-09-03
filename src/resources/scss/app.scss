@@ -1,6 +1,8 @@
+// @import url('https://fonts.cdnfonts.com/css/mona-sans');
+
 // Toggle global options
 $enable-gradients: false;
-$enable-shadows: true;
+$enable-shadows: false;
 
 $offcanvas-box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
 
@@ -11,7 +13,7 @@ $offcanvas-box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
 $body-color: #333;
 $body-bg: #fff;
 $border-radius: .4rem;
-$success: #7952b3;
+// $success: #7952b3;
 
 // Required
 @import "bootstrap/scss/variables";
@@ -37,11 +39,11 @@ $success: #7952b3;
 @import "bootstrap/scss/card";
 @import "bootstrap/scss/breadcrumb";
 @import "bootstrap/scss/accordion";
-// @import "bootstrap/scss/pagination";
+@import "bootstrap/scss/pagination";
 // @import "bootstrap/scss/badge";
 // @import "bootstrap/scss/alert";
 // @import "bootstrap/scss/progress";
-// @import "bootstrap/scss/list-group";
+@import "bootstrap/scss/list-group";
 @import "bootstrap/scss/close";
 // @import "bootstrap/scss/toasts";
 @import "bootstrap/scss/modal"; // Requires transitions
@@ -68,6 +70,36 @@ $success: #7952b3;
 // Custom styles
 //
 
+/*
+* select2 plugin
+*/
+// @import "../plugins/select2/css/select2.css";
+@import "/node_modules/select2/dist/css/select2.css";
+@import "../plugins/select2/css/select2-bootstrap-5-theme.css";
+
+/*
+* datatables plugin
+*/
+// @import "../plugins/datatables/dataTables.bootstrap5.css";
+// @import "../plugins/datatables/buttons.bootstrap5.css";
+
+@import "responsive";
+
+// @import "custom-el";
+@import "custom-bs";
+@import "upload-image";
+
+@font-face {
+    font-family: 'Mona Sans';
+    src:
+        url('../fonts/Mona-Sans/Mona-Sans.woff2') format('woff2 supports variations'),
+        url('../fonts/Mona-Sans/Mona-Sans.woff2') format('woff2-variations');
+    font-weight: 200 900;
+    font-stretch: 75% 125%;
+}
+
+@import "font-style";
+
 html {
     height: -webkit-fill-available;
 }
@@ -77,24 +109,64 @@ body {
     min-height: -webkit-fill-available;
     padding: 0;
     margin: 0;
+    font-family: 'Mona Sans';
+    font-weight: var(--fs-fweight-400);
+    font-stretch: var(--fs-mona-fstretch-medium);
+    // font-family: 'Mona-Sans', sans-serif;
+    // font-family: 'Mona Sans', sans-serif;
+    // font-weight: 600;
+}
+
+label {
+    font-size: 16px;
+}
+
+/*
+* Remove Arrows/Spinners Input Type Number
+*/
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
 }
 
 .sidebar {
     .offcanvas-md {
-        width: 4.5rem;
 
         .offcanvas-body {
+
             .nav {
+
                 .nav-item {
+
                     a {
                         color: var(--bs-dark-text-emphasis);
 
-                        &.active {
-                            color: var(--bs-white)
+                        span {
+                            font-size: 10px !important;
+                            font-weight: var(--fs-fweight-500);
+                            font-stretch: var(--fs-mona-fstretch-medium);
+                            margin-top: 10px;
                         }
 
-                        span {
-                            font-size: 12px !important;
+                        &.active {
+                            background-color: transparent;
+                            color: var(--bs-black);
+                            border-right: 7px;
+                            border-style: solid;
+                            border-image: linear-gradient(#529753, #9cdc72) 1 100%;
+                            margin-left: 7px;
+
+                            span {
+                                font-weight: var(--fs-fweight-600) !important;
+                                font-stretch: var(--fs-mona-fstretch-medium) !important;
+                            }
                         }
                     }
                 }
@@ -104,7 +176,8 @@ body {
 }
 
 .content {
-    width: calc(100vw - 4.5rem);
+    --bs-bg-opacity: 1;
+    background-color: rgba(var(--bs-tertiary-bg-rgb), var(--bs-bg-opacity)) !important;
     min-height: 100vh;
 }
 
@@ -113,39 +186,34 @@ header {
     padding-bottom: 1rem !important;
 }
 
-@include media-breakpoint-up(md) {
-    .sidebar {
-        --bs-bg-opacity: 1;
-        background-color: rgba(var(--bs-tertiary-bg-rgb), var(--bs-bg-opacity)) !important;
-
-        .offcanvas-md {
-            --bs-bg-opacity: 1;
-            background-color: rgba(var(--bs-tertiary-bg-rgb), var(--bs-bg-opacity)) !important;
-        }
-    }
+/*
+* additional class
+*/
+.divider-line {
+    width: 75%;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-@include media-breakpoint-down(md) {
-    .content {
-        width: 100vw;
-        min-height: 100vh;
-    }
-
-    .sidebar {
-        .offcanvas-md {
-            border-radius: 35px !important;
-            right: 10px !important;
-            height: 70%;
-            // margin: 50% auto;
-            margin: calc(100vh - (83 / 100 * 100vh)) auto;
-
-            div {
-                margin-top: 35px !important;
+.table {
+    &.table-app {
+        tr {
+            td, th {
+                font-size: 14px;
+                padding-top: 15px;
+                padding-bottom: 15px;
             }
-        }
-    }
 
-    header {
-        border-bottom: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
+            th {
+                font-weight: 700;
+            }
+
+            .dt-empty {
+                text-align: center;
+            }
+
+        }
     }
 }

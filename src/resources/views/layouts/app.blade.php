@@ -11,6 +11,11 @@
 
     <!-- Scripts -->
     @vite(['resources/scss/app.scss', 'resources/js/app.js'])
+
+    <script>
+        const isMenu = {!! json_encode($isMenu) !!}
+        @stack('inline-script')
+    </script>
 </head>
 <body>
     <div class="container-fluid d-flex flex-column flex-md-row p-0 m-0">
@@ -24,9 +29,9 @@
             {{-- ./Header --}}
 
             {{-- Main --}}
-            <main class="container-fluid p-3">
+            <main class="container-fluid px-4 py-3">
                 {{-- Content --}}
-                <div class="row">
+                <div class="row px-0 px-lg-4">
                     {{ $slot }}
                 </div>
                 {{-- ./Content --}}

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Customer;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -20,9 +21,10 @@ class OrderController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(): View
     {
-        //
+        $customers = Customer::select(['id', 'name'])->orderBy('name', 'asc')->get();
+        return view('order.create', compact('customers'));
     }
 
     /**

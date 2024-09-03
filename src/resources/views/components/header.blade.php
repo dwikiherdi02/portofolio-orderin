@@ -1,10 +1,8 @@
-<header class="navbar navbar-expand-md navbar-white bg-white">
+<header class="navbar navbar-expand-md navbar-white">
     <div class="container-fluid">
         <div class="d-flex justify-content-between w-100">
             <div class="align-self-center">
-                <a class="navbar-brand fs-3 fw-bolder" href="#">
-                    {{ $page }}
-                </a>
+                <h1 class="fs-mona fs-mona-semibold m-0">{{ $page }}</h1>
             </div>
             <div class="align-self-center">
                 <ul class="navbar-nav flex-row d-md-none">

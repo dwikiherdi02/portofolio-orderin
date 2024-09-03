@@ -28,5 +28,16 @@ class ViewServiceProvider extends ServiceProvider
             $instance = new $controller();
             $view->with('page', $instance::PAGE ?? '');
         });
+
+        Facades\View::composer(['layouts.app', 'components.sidebar'], function (View $view) {
+            $isMenu = (object) [
+                'home' => app('request')->routeIs('home'),
+                'order' => app('request')->routeIs('order.*'),
+                'product' => app('request')->routeIs('product.*'),
+                'customer' => app('request')->routeIs('customer.*'),
+            ];
+
+            $view->with('isMenu', $isMenu);
+        });
     }
 }

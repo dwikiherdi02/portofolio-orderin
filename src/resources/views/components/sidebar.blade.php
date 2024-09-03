@@ -1,17 +1,11 @@
-@php
-
-$isMenu = (object) [
-    'home' => request()->routeIs('home'),
-    'order' => request()->routeIs('order.*'),
-    'product' => request()->routeIs('product.*'),
-    'customer' => request()->routeIs('customer.*'),
-];
-@endphp
-
 <div class="sidebar border border-md-right order-2 order-md-1">
     <div class="offcanvas-md offcanvas-end" tabindex="-1" id="sidebarMenu">
         <div class="offcanvas-body d-md-flex flex-column flex-shrink-0 p-0  overflow-y-auto">
-            <ul class="nav nav-pills nav-flush flex-column mb-auto text-center overflow-x-hidden">
+            <a href="{{ route('home') }}" id="logo" class="d-block p-3 text-decoration-none" title="Logo" data-bs-toggle="tooltip" data-bs-placement="right">
+                <img src="{{ asset('assets/images/logo.png') }}" alt="Logo" class="w-100 h-auto">
+            </a>
+            <hr class="divider-line">
+            <ul class="nav nav-pills nav-flush flex-column text-center row-gap-2">
                 <li class="nav-item">
                     <a href="{{ route('home') }}" class="nav-link {{ $isMenu->home ? 'active' : ''}} px-0 py-3 rounded-0 d-flex flex-column" aria-current="page" title="Home">
                         <i class="fa-solid fa-house"></i>

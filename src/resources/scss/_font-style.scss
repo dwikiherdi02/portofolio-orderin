@@ -1,0 +1,140 @@
+:root {
+    --fs-fweight-200: 200;
+    --fs-fweight-300: 300;
+    --fs-fweight-400: 400;
+    --fs-fweight-500: 500;
+    --fs-fweight-600: 600;
+    --fs-fweight-700: 700;
+    --fs-fweight-800: 800;
+    --fs-fweight-900: 900;
+
+    --fs-mona-fstretch-low: 75%;
+    --fs-mona-fstretch-medium: 100%;
+    --fs-mona-fstretch-high: 125%;
+}
+
+// https: //github.com/github/mona-sans?tab=readme-ov-file
+.fs-mona {
+    font-weight: var(--fs-fweight-400) !important;
+    font-stretch: var(--fs-mona-fstretch-medium) !important;
+
+    &.fs-mona-ultraLight-narrow {
+        font-weight: var(--fs-fweight-200) !important;
+        font-stretch: var(--fs-mona-fstretch-low) !important;
+    }
+
+    &.fs-mona-light-narrow {
+        font-weight: var(--fs-fweight-300) !important;
+        font-stretch: var(--fs-mona-fstretch-low) !important;
+    }
+
+    &.fs-mona-regular-narrow {
+        font-weight: var(--fs-fweight-400) !important;
+        font-stretch: var(--fs-mona-fstretch-low) !important;
+    }
+
+    &.fs-mona-medium-narrow {
+        font-weight: var(--fs-fweight-500) !important;
+        font-stretch: var(--fs-mona-fstretch-low) !important;
+    }
+
+    &.fs-mona-semibold-narrow {
+        font-weight: var(--fs-fweight-600) !important;
+        font-stretch: var(--fs-mona-fstretch-low) !important;
+    }
+
+    &.fs-mona-bold-narrow {
+        font-weight: var(--fs-fweight-700) !important;
+        font-stretch: var(--fs-mona-fstretch-low) !important;
+    }
+
+    &.fs-mona-extrabold-narrow {
+        font-weight: var(--fs-fweight-800) !important;
+        font-stretch: var(--fs-mona-fstretch-low) !important;
+    }
+
+    &.fs-mona-black-narrow {
+        font-weight: var(--fs-fweight-900) !important;
+        font-stretch: var(--fs-mona-fstretch-low) !important;
+    }
+
+    &.fs-mona-ultralight {
+        font-weight: var(--fs-fweight-200) !important;
+        font-stretch: var(--fs-mona-fstretch-medium) !important;
+    }
+
+    &.fs-mona-light {
+        font-weight: var(--fs-fweight-300) !important;
+        font-stretch: var(--fs-mona-fstretch-medium) !important;
+    }
+
+    &.fs-mona-regular {
+        font-weight: var(--fs-fweight-400) !important;
+        font-stretch: var(--fs-mona-fstretch-medium) !important;
+    }
+
+    &.fs-mona-medium {
+        font-weight: var(--fs-fweight-500) !important;
+        font-stretch: var(--fs-mona-fstretch-medium) !important;
+    }
+
+    &.fs-mona-semibold {
+        font-weight: var(--fs-fweight-600) !important;
+        font-stretch: var(--fs-mona-fstretch-medium) !important;
+    }
+
+    &.fs-mona-bold {
+        font-weight: var(--fs-fweight-700) !important;
+        font-stretch: var(--fs-mona-fstretch-medium) !important;
+    }
+
+    &.fs-mona-extrabold {
+        font-weight: var(--fs-fweight-800) !important;
+        font-stretch: var(--fs-mona-fstretch-medium) !important;
+    }
+
+    &.fs-mona-black {
+        font-weight: var(--fs-fweight-900) !important;
+        font-stretch: var(--fs-mona-fstretch-medium) !important;
+    }
+
+    &.fs-mona-ultralight-wide {
+        font-weight: var(--fs-fweight-200) !important;
+        font-stretch: var(--fs-mona-fstretch-high) !important;
+    }
+
+    &.fs-mona-light-wide {
+        font-weight: var(--fs-fweight-300) !important;
+        font-stretch: var(--fs-mona-fstretch-high) !important;
+    }
+
+    &.fs-mona-regular-wide {
+        font-weight: var(--fs-fweight-400) !important;
+        font-stretch: var(--fs-mona-fstretch-high) !important;
+    }
+
+    &.fs-mona-medium-wide {
+        font-weight: var(--fs-fweight-500) !important;
+        font-stretch: var(--fs-mona-fstretch-high) !important;
+    }
+
+    &.fs-mona-semibold-wide {
+        font-weight: var(--fs-fweight-600) !important;
+        font-stretch: var(--fs-mona-fstretch-high) !important;
+    }
+
+    &.fs-mona-bold-wide {
+        font-weight: var(--fs-fweight-700) !important;
+        font-stretch: var(--fs-mona-fstretch-high) !important;
+    }
+
+    &.fs-mona-extrabold-wide {
+        font-weight: var(--fs-fweight-800) !important;
+        font-stretch: var(--fs-mona-fstretch-high) !important;
+    }
+
+    &.fs-mona-black-wide {
+        font-weight: var(--fs-fweight-900) !important;
+        font-stretch: var(--fs-mona-fstretch-high) !important;
+    }
+}

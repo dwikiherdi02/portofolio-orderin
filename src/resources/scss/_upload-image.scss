@@ -1,0 +1,135 @@
+.avatar {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    border-radius: 50%;
+    background-color: #EEEEEE;
+}
+
+.avatar::after {
+    font-family: "Font Awesome 5 Free";
+    content: "\f007";
+    font-weight: 900;
+    font-size: 24px;
+    color: #ccc;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.avatar-md {
+    width: 100px;
+    height: 100px;
+    padding: 5px;
+}
+
+.avatar img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 50% 50%;
+    border-top-right-radius: 50% 50%;
+    border-bottom-right-radius: 50% 50%;
+    border-bottom-left-radius: 50% 50%;
+    z-index: 1;
+}
+
+.avatar img[src=""] {
+    display: none;
+}
+
+.image-thumbnail {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    background-color: #EEEEEE;
+    border-radius: 10%;
+}
+
+.image-thumbnail-avatar {
+    border-radius: 50% !important;
+}
+
+.image-thumbnail::after {
+    font-family: "Font Awesome 5 Free";
+    content: "\f03e";
+    font-weight: 900;
+    color: #CCCCCC;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.image-thumbnail-avatar::after {
+    content: "\f007" !important;
+}
+
+.image-thumbnail-xs {
+    width: 25px;
+    height: 25px;
+    /* padding: 2.5px; */
+}
+
+.image-thumbnail-xs::after {
+    font-size: 14px;
+}
+
+.image-thumbnail-sm {
+    width: 50px;
+    height: 50px;
+    /* padding: 2.5px; */
+}
+
+.image-thumbnail-sm::after {
+    font-size: 14px;
+}
+
+.image-thumbnail-md {
+    width: 100px;
+    height: 100px;
+    /* padding: 5px; */
+}
+
+.image-thumbnail-md::after {
+    font-size: 26px;
+}
+
+.image-thumbnail-active {
+    background-color: transparent !important;
+}
+
+.image-thumbnail-active::after {
+    display: none !important;
+}
+
+
+.image-thumbnail img[src=""] {
+    display: none;
+}
+
+.image-thumbnail img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+/* .image-thumbnail-avatar img {
+  border-top-left-radius: 50% 50%;
+  border-top-right-radius: 50% 50%;
+  border-bottom-right-radius: 50% 50%;
+  border-bottom-left-radius: 50% 50%;
+} */
+
+.image-thumbnail img.landscape {
+    width: auto !important;
+    height: 100% !important;
+    margin-left: -50px;
+}
+
+.image-thumbnail img.portrait {
+    width: 100% !important;
+    height: auto !important;
+}

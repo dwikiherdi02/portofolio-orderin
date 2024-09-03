@@ -1,0 +1,37 @@
+html {
+    height: -webkit-fill-available;
+}
+
+body {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+    padding: 0;
+    margin: 0;
+    font-family: 'Mona-Sans', sans-serif;
+    font-family: 'Mona Sans', sans-serif;
+    font-weight: 600;
+}
+
+header {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+}
+
+label {
+    font-size: 16px;
+}
+
+/*
+* Remove Arrows/Spinners Input Type Number
+*/
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
