@@ -29,8 +29,7 @@ class ProductController extends Controller
     {
         $start = $request->get('start') * $request->get('length');
 
-        $model = Product::select(['id', 'image', 'name', 'price', 'categories', DB::raw('@rownum := @rownum + 1 as rownum')])
-            ->crossJoin(DB::raw("(select @rownum := $start) r"));
+        $model = Product::select(['id', 'image', 'name', 'price', 'categories', DB::raw('@rownum := @rownum + 1 as rownum')])->crossJoin(DB::raw("(select @rownum := $start) r"));
 
         $dataTable = new DataTables();
 
@@ -63,6 +62,43 @@ class ProductController extends Controller
                 return view('product.list.action', compact('data'))->render();
             })
             ->rawColumns(['image', 'action'])
+            ->toJson();
+    }
+
+    public function listOrdering(Request $request): JsonResponse
+    {
+        $start = $request->get('start') * $request->get('length');
+
+        $model = Product::select(['id', 'name', 'price', DB::raw('@rownum := @rownum + 1 as rownum')])->crossJoin(DB::raw("(select @rownum := $start) r"));
+
+        $dataTable = new DataTables();
+
+        return $dataTable->eloquent($model)
+            ->order(function ($query) use ($request) {
+                $columns = array_column($request->get('columns'), 'data');
+                $orders = $request->get('order');
+                if (!empty($orders)) {
+                    foreach ($orders as $order) {
+                        $column = $columns[$order['column']];
+                        $sort = $order['dir'];
+                        $query->orderBy($column, $sort);
+                    }
+                } else {
+                    $query->orderBy('name', 'asc');
+                }
+            })
+            ->addColumn('id', '{{ $rownum }}')
+            ->addColumn('name', '{{ $name }}')
+            ->addColumn('price', function (Product $data) {
+                return number_format($data->price, 2, ',', '.');
+            })
+            ->addColumn('action', function (Product $data) {
+                return view('product.list.add-product', compact('data'))->render();
+            })
+            ->addColumn('data', function (Product $data) {
+                return $data;
+            })
+            ->rawColumns(['action'])
             ->toJson();
     }
 

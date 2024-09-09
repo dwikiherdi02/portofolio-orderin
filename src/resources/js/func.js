@@ -184,4 +184,20 @@ const reloadTable = (id) => {
     _dttable[`${id}`].ajax.reload();
 }
 
-export { _dttable, deleteData, initDataTable, mergeObject, processDelete, reloadTable, replaceObject, showErrorValidation, uploadImgInit};
+const toRupiah = (number, withSymbol=true) => {
+    let opt = { style: 'currency', currency: 'IDR' };
+
+    if (!withSymbol) {
+        opt["currencyDisplay"] = "code";
+    }
+
+    let formattedNumber =  new Intl.NumberFormat( 'id-ID', opt ).format(number);
+
+    if (!withSymbol) {
+        return formattedNumber.replace("IDR", "").trim()
+    }
+
+    return formattedNumber
+}
+
+export { _dttable, deleteData, initDataTable, mergeObject, processDelete, reloadTable, replaceObject, showErrorValidation, toRupiah, uploadImgInit};

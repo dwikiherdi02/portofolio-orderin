@@ -18,6 +18,7 @@
         "animate.css": "^4.1.1",
         "bootstrap": "^5.3.3",
         "datatables.net-bs5": "^2.1.5",
+        "gijgo": "^1.9.14",
         "jquery": "^3.7.1",
         "sweetalert2": "^11.12.4"
     }

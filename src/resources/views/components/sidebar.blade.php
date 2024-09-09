@@ -13,19 +13,19 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('order.index') }}" class="nav-link {{ $isMenu->order ? 'active' : ''}} px-0 py-3 rounded-0 d-flex flex-column" aria-current="page" title="Order">
+                    <a href="{{ route('order.index') }}" class="nav-link {{ $isMenu->order->wildcard ? 'active' : ''}} px-0 py-3 rounded-0 d-flex flex-column" aria-current="page" title="Order">
                         <i class="fa-solid fa-cart-plus"></i>
                         <span>Order</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('product.index') }}" class="nav-link {{ $isMenu->product ? 'active' : ''}} px-0 py-3 rounded-0 d-flex flex-column" aria-current="page" title="Products">
+                    <a href="{{ route('product.index') }}" class="nav-link {{ $isMenu->product->wildcard ? 'active' : ''}} px-0 py-3 rounded-0 d-flex flex-column" aria-current="page" title="Products">
                         <i class="fa-solid fa-box-open"></i>
                         <span>Products</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('customer.index') }}" class="nav-link {{ $isMenu->customer ? 'active' : ''}} px-0 py-3 rounded-0 d-flex flex-column" aria-current="page"
+                    <a href="{{ route('customer.index') }}" class="nav-link {{ $isMenu->customer->wildcard ? 'active' : ''}} px-0 py-3 rounded-0 d-flex flex-column" aria-current="page"
                         title="Customers">
                         <i class="fa-solid fa-users"></i>
                         <span>Customers</span>

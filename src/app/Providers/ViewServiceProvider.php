@@ -32,9 +32,23 @@ class ViewServiceProvider extends ServiceProvider
         Facades\View::composer(['layouts.app', 'components.sidebar'], function (View $view) {
             $isMenu = (object) [
                 'home' => app('request')->routeIs('home'),
-                'order' => app('request')->routeIs('order.*'),
-                'product' => app('request')->routeIs('product.*'),
-                'customer' => app('request')->routeIs('customer.*'),
+                'order' => (object) [
+                    'wildcard' => app('request')->routeIs('order.*'),
+                    'index' => app('request')->routeIs('order.index'),
+                    'create' => app('request')->routeIs('order.create'),
+                ],
+                'product' => (object) [
+                    'wildcard' => app('request')->routeIs('product.*'),
+                    'index' => app('request')->routeIs('product.index'),
+                    'create' => app('request')->routeIs('product.create'),
+                    'edit' => app('request')->routeIs('product.edit'),
+                ],
+                'customer' => (object) [
+                    'wildcard' => app('request')->routeIs('customer.*'),
+                    'index' => app('request')->routeIs('customer.index'),
+                    'create' => app('request')->routeIs('customer.create'),
+                    'edit' => app('request')->routeIs('customer.edit'),
+                ],
             ];
 
             $view->with('isMenu', $isMenu);

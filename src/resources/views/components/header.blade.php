@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="d-flex justify-content-between w-100">
             <div class="align-self-center">
-                <h1 class="fs-mona fs-mona-semibold m-0">{{ $page }}</h1>
+                <h1 class="fs-mona fs-mona-semibold fs-3 m-0">{{ $page }}</h1>
             </div>
             <div class="align-self-center">
                 <ul class="navbar-nav flex-row d-md-none">

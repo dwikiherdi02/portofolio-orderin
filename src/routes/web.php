@@ -10,13 +10,16 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::prefix('order')->group(function () {
     Route::get('/', [OrderController::class, 'index'])->name('order.index');
+    Route::get('/list', [OrderController::class, 'list'])->name('order.list');
     Route::get('/create', [OrderController::class, 'create'])->name('order.create');
     Route::post('/create', [OrderController::class, 'store'])->name('order.store');
+    Route::get('/show/{order}', [OrderController::class, 'show'])->name('order.show');
 });
 
 Route::prefix('products')->group(function () {
     Route::get('/', [ProductController::class, 'index'])->name('product.index');
     Route::get('/list', [ProductController::class, 'list'])->name('product.list');
+    Route::get('list/ordering', [ProductController::class, 'listOrdering'])->name('product.list_ordering');
     Route::get('/create', [ProductController::class, 'create'])->name('product.create');
     Route::post('/create', [ProductController::class, 'store'])->name('product.store');
     Route::get('/edit/{product}', [ProductController::class, 'edit'])->name('product.edit');
